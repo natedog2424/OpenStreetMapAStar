@@ -11,3 +11,36 @@
     width: 100%;
     height: 100%;
 }
+
+.main-button {
+    transition: all 0.5s;
+    padding: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 1rem;
+    z-index: 10;
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 0.5rem;
+}
+
+.main-button:hover {
+    transform: translate(-50%, 0) scale(1.05);
+}
+
+.main-button:not(slippy-mode) {
+    background-color: #111;
+    color: white;
+    border: solid 2px white;
+    box-shadow: 0 0 1.5rem 0.5rem #FFFFFF2A;
+
+}
+
+.main-button.slippy-mode {
+    background-color: #111;
+    color: white;
+    border: none;
+    box-shadow: 0 0 0.5rem 0.5rem #0000002A;
+
+}

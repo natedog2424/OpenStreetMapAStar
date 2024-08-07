@@ -6,9 +6,13 @@
     <title>map</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src='main.js'></script>
 </head>
 <body>
     <canvas id="main-canvas"></canvas>
+    <div id="map" style="position: absolute; width: 100%; height: 100%; z-index: 5; transition: opacity 0.5s;"></div>
+    <button id="main-button" onclick="toggleMode()" class="main-button slippy-mode">Toggle Pathfinding Mode</button>
 </body>
 </html>
