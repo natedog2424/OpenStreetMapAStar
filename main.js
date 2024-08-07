@@ -356,9 +356,9 @@ async function drawMap() {
             }
 
             let brightness;
-            brightness = node.lastTouched == null ? 0 : (1 - Math.min((now - node.lastTouched) / 800, 0.9)) * 255;
-            if (node.completed && brightness < 100) {
-                brightness = 100;
+            brightness = node.lastTouched == null ? 0 : (1 - Math.min((now - node.lastTouched) / 800, 0.85)) * 255;
+            if (node.completed && brightness < 120) {
+                brightness = 120;
             }
 
             ctx.strokeStyle = `rgba(${brightness},${brightness},${brightness},1)`;
