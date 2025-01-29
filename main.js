@@ -237,9 +237,44 @@ function getMapData() {
             resolve();
         }
 
+        zoom = map.getZoom();
+
+        if (zoom < 8) {
+            alert("not zoomed in enough to visualize pathfinding. please zoom in and try again");
+            reject();
+            return;
+        }
+
+        // Compute highway levels from zoom distance
+        highwayLevels = ["motorway", "trunk"]
+        if (zoom > 10) {
+            highwayLevels.push("primary");
+        }
+
+        if (zoom > 12) {
+            highwayLevels.push("secondary");
+        }
+
+        if (zoom > 13){
+            highwayLevels.push("tertiary");
+        }
+
+        if (zoom > 14) {
+            highwayLevels.push("residential");
+            highwayLevels.push("unclassified");
+            highwayLevels.push("service");
+        }
+
+
+
+        let levelString = highwayLevels.join("|");
+
+        console.log(levelString);
+        console.log(zoom);
+
         mapRequest.send(
             `data=(
-            way["highway"~"motorway|trunk|primary|secondary"]
+            way["highway"~"${levelString}"]
             (${boundB},${boundL},${boundT},${boundR});
             );
 
